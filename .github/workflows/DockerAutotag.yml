@@ -3,7 +3,10 @@ on:
   push:
     branches:
       - develop
+    
+
 jobs:
+
   build-and-push-image:
     runs-on: ubuntu-latest
     steps:
@@ -24,5 +27,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: hsd3030/dockerautotag:test
+        tags: hsd3030/dockerautotag:${{ github.sha }}  
 
